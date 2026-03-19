@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thailand Elite Privilege Visa | Sawasdee Privilege</title>
-  <meta name="description" content="Sawasdee Privilege - Authorized agent for Thailand Privilege Visa. Live in Thailand for 5-20 years with hassle-free long-term residency." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <title>Sawasdee Privilege Visa | Sawasdee Privilege</title>
+  <meta name="description" content="Sawasdee Privilege - Authorized agent for Sawasdee Privilege Visa. Live in Thailand for 5-20 years with hassle-free long-term residency." />
+  <link rel="icon" href="sawadeeLogo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+  <link href="https://fonts.cdnfonts.com/css/tex-gyre-heros" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -23,8 +23,8 @@
       --text-dark: #1a1a2e;
       --text-mid: #4a4a6a;
       --text-light: #7a7a9a;
-      --font-display: 'Montserrat', -apple-system, sans-serif;
-      --font-body: 'Montserrat', -apple-system, sans-serif;
+      --font-display: 'Tex Gyre Heros', 'TeX Gyre Heros', Helvetica, Arial, sans-serif;
+      --font-body: 'Tex Gyre Heros', 'TeX Gyre Heros', Helvetica, Arial, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -60,7 +60,12 @@
       text-decoration: none;
       letter-spacing: 0.12em;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
     }
+
+    .nav-logo-img { height: 34px; width: auto; flex-shrink: 0; }
 
     .nav-logo span { color: var(--gold-light); font-weight: 800; }
 
@@ -110,7 +115,7 @@
 
     .btn-gold {
       background: var(--gold);
-      color: var(--navy);
+      color: var(--white);
     }
 
     .btn-gold:hover {
@@ -842,10 +847,16 @@
 
     .packages-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(5, minmax(260px, 1fr));
+      gap: 1.5rem;
       margin-top: 3.5rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(201,168,76,0.5) rgba(255,255,255,0.06);
     }
+    .packages-grid .pkg-card { scroll-snap-align: start; }
 
     .pkg-card {
       background: rgba(255,255,255,0.05);
@@ -1717,7 +1728,7 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1200px) {
-      .packages-grid { grid-template-columns: repeat(3, 1fr); }
+      .packages-grid { grid-template-columns: repeat(5, minmax(240px, 1fr)); }
       .freedom-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
@@ -1731,7 +1742,7 @@
       .about-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: repeat(2, 1fr); }
       .different-inner { grid-template-columns: 1fr; }
-      .packages-grid { grid-template-columns: repeat(2, 1fr); }
+      .packages-grid { grid-template-columns: repeat(5, minmax(240px, 1fr)); }
       .benefits-grid { grid-template-columns: 1fr; }
       .freedom-grid { grid-template-columns: repeat(2, 1fr); }
       .assist-grid { grid-template-columns: 1fr; }
@@ -1748,7 +1759,7 @@
     @media (max-width: 640px) {
       .section-inner { padding: 4rem 1.25rem; }
       .features-grid { grid-template-columns: 1fr; }
-      .packages-grid { grid-template-columns: 1fr; }
+      .packages-grid { grid-template-columns: repeat(5, minmax(220px, 1fr)); }
       .freedom-grid { grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: 1fr; }
       .offices-grid { grid-template-columns: 1fr; }
@@ -1943,6 +1954,29 @@
     nav.scrolled .nav-logo span { color: var(--gold) !important; }
     nav.scrolled .nav-links a { color: var(--navy); }
     nav.scrolled .nav-links a:hover { color: var(--gold); }
+
+    /* ─── PACKAGES SECTION OVERRIDES ─── */
+    #packages .text-center { text-align: left; }
+    #packages .divider.centered { margin-left: 0; }
+    #packages .section-desc { margin-left: 0; }
+    .packages-grid .pkg-card { text-align: left; }
+    .pkg-visa-badge { display: inline-block; }
+
+    /* Tier name above card image */
+    .pkg-tier-above {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.25rem;
+      background: rgba(0,0,0,0.18);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .pkg-tier-gold    { color: #f5c842; }
+    .pkg-tier-platinum { color: #c8d4dc; }
+    .pkg-tier-diamond  { color: #7abfff; }
+    .pkg-tier-president { color: #e88a98; }
+    .pkg-tier-presplus { color: #c9a84c; }
     nav.scrolled .btn-outline {
       border-color: var(--navy);
       color: var(--navy);
@@ -2193,7 +2227,7 @@
 
 <!-- ═══════════════════════════════════════════════ NAV -->
 <nav>
-  <a href="#" class="nav-logo">Sawasdee<span>Privilege</span></a>
+  <a href="#" class="nav-logo"><img src="sawadeeLogo.png" class="nav-logo-img" alt="Sawasdee Privilege" />Sawasdee<span>Privilege</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#packages">Membership</a></li>
@@ -2223,14 +2257,13 @@
     <div class="hero-content">
       <div class="hero-badge">Excellent 5-Star Rating &nbsp;·&nbsp; 1,600+ Reviews</div>
       <h1 class="hero-heading">
-        Long-Term<br />
-        <em>Thailand Privilege</em><br />
-        Visa
+        LONG-TERM<br />
+        <em>SAWASDEE PRIVILEGE</em> VISA
       </h1>
       <p class="hero-sub">Looking for a hassle-free way to live in Thailand for 5 to 20 years?</p>
-      <p class="hero-body">Sawasdee Privilege makes obtaining your Thailand Elite Visa simple and straightforward. We handle all the details, so you can relax and start planning your new life in paradise.</p>
+      <p class="hero-body">Sawasdee Privilege makes obtaining your Sawasdee Privilege Visa simple and straightforward. We handle all the details, so you can relax and start planning your new life in paradise.</p>
       <ul class="hero-props">
-        <li>Choose the perfect Elite visa package for your needs</li>
+        <li>Choose the perfect Sawasdee Privilege package for your needs</li>
         <li>Navigate the application process with ease</li>
         <li>Enjoy your stay in Thailand with full confidence</li>
       </ul>
@@ -2238,39 +2271,8 @@
         <button onclick="openPopup()" class="btn btn-outline btn-lg">Book a Consultation</button>
         <a href="#packages" class="btn btn-gold btn-lg">View Packages</a>
       </div>
-      <div class="hero-stars">
-        <span class="stars-icons">★★★★★</span>
-        <span>Excellent · 1,600+ verified client reviews</span>
-      </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hero-card-title">Membership Overview</div>
-        <div class="package-mini">
-          <div class="pkg-row">
-            <div><div class="pkg-name">Gold</div><div class="pkg-years">1-Year VISA</div></div>
-            <div class="pkg-price">200,000 THB</div>
-          </div>
-          <div class="pkg-row">
-            <div><div class="pkg-name">Platinum</div><div class="pkg-years">5-Year VISA</div></div>
-            <div class="pkg-price">500,000 THB</div>
-          </div>
-          <div class="pkg-row" style="border-color: rgba(201,168,76,0.3);">
-            <div><div class="pkg-name">Diamond</div><div class="pkg-years">10-Year VISA</div></div>
-            <div class="pkg-price">1,000,000 THB</div>
-          </div>
-          <div class="pkg-row">
-            <div><div class="pkg-name">President</div><div class="pkg-years">20-Year VISA</div></div>
-            <div class="pkg-price">1,500,000 THB</div>
-          </div>
-          <div class="pkg-row">
-            <div><div class="pkg-name">President Plus</div><div class="pkg-years">20-Year Residence</div></div>
-            <div class="pkg-price">5,000,000 THB</div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -2278,30 +2280,24 @@
 <section id="how-it-works">
   <div class="section-inner">
     <div class="text-center">
-      <h2 class="section-title">HOW SAWASDEE PRIVILEGE VISA WORKS</h2>
+      <h2 class="section-title">HOW <span style="color:var(--gold);">SAWASDEE PRIVILEGE</span> VISA WORKS</h2>
       <div class="divider centered"></div>
     </div>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">1</div>
         <div class="step-title">Application</div>
-        <p class="step-body">Tell us about your needs. We'll help you choose the right Thailand Elite Visa package and guide you through completing the application forms.</p>
+        <p class="step-body">Tell us about your needs. We'll help you choose the right Sawasdee Privilege Visa package and guide you through completing the application forms.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div class="step-title">Approval &amp; Payment</div>
-        <p class="step-body">We'll handle submitting your application and ensure your payment to the Thailand Privilege Card Company is secure and efficient.</p>
+        <p class="step-body">We'll handle submitting your application and ensure your payment to the Sawasdee Privilege Card Company is secure and efficient.</p>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <div class="step-title">Benefits</div>
-        <p class="step-body">Receive your visa and enjoy all the benefits of the Thailand Elite program, including VIP services, exclusive discounts, and ongoing support.</p>
-      </div>
-    </div>
-    <div class="badge-wrap" style="margin-top:2rem;">
-      <div class="authorized-badge">
-        <div class="badge-icon">🏅</div>
-        <span>Sawasdee Privilege is an authorized General Sales and Services Agent for Thailand Privilege membership in Thailand.</span>
+        <p class="step-body">Receive your visa and enjoy all the benefits of the Sawasdee Privilege program, including VIP services, exclusive discounts, and ongoing support.</p>
       </div>
     </div>
     <div style="text-align:center;margin-top:2rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
@@ -2316,8 +2312,7 @@
 <section id="why">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label" style="color:var(--gold);">Benefits</span>
-      <h2 class="section-title light">Why Thailand Privilege Visa?</h2>
+      <h2 class="section-title light">WHY <span style="color:var(--gold);">SAWASDEE PRIVILEGE</span> VISA?</h2>
       <div class="divider centered"></div>
     </div>
     <div class="why-grid">
@@ -2344,8 +2339,7 @@
 <section id="features">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label">Lifestyle</span>
-      <h2 class="section-title">Hassle-Free Long-Term Residency</h2>
+      <h2 class="section-title">HASSLE-FREE LONG-TERM RESIDENCY</h2>
       <div class="divider centered"></div>
     </div>
     <div class="features-grid">
@@ -2382,8 +2376,7 @@
   <div class="section-inner">
     <div class="about-grid">
       <div>
-        <span class="section-label">Who We Are</span>
-        <h2 class="section-title">About Sawasdee Privilege</h2>
+        <h2 class="section-title">ABOUT <span style="color:var(--gold);">SAWASDEE PRIVILEGE</span></h2>
         <div class="divider"></div>
         <p style="color:var(--text-mid);line-height:1.8;margin-bottom:1rem;font-size:0.95rem;">Sawasdee Privilege is a premier full-service legal and immigration advisory firm specializing in Thailand's elite residency programs, with over 20 years of experience helping clients navigate the complexities of Thai immigration law.</p>
         <p style="color:var(--text-mid);line-height:1.8;font-size:0.95rem;">Our team of skilled and experienced advisors is dedicated to providing personalized, effective solutions — committed to delivering a high degree of expertise at reasonable costs and building long-term relationships based on trust and mutual respect.</p>
@@ -2399,21 +2392,7 @@
             <div class="service-icon">🛂</div>
             <div>
               <div class="service-title">Immigration</div>
-              <p class="service-body">We'll help you secure the right visa, including the Thailand Elite Visa, and provide guidance on all related matters.</p>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="service-icon">⚖️</div>
-            <div>
-              <div class="service-title">Litigation</div>
-              <p class="service-body">Our experienced litigators will represent you in court, ensuring your rights are protected throughout the process.</p>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="service-icon">🏢</div>
-            <div>
-              <div class="service-title">Corporate &amp; Investment Law</div>
-              <p class="service-body">Expert counsel on company formation, business licenses, BOI applications, and investment laws in Thailand.</p>
+              <p class="service-body">We'll help you secure the right visa, including the Sawasdee Privilege Visa, and provide guidance on all related matters.</p>
             </div>
           </div>
           <div class="service-item">
@@ -2421,13 +2400,6 @@
             <div>
               <div class="service-title">Family Law</div>
               <p class="service-body">From prenuptial agreements to divorce and child custody matters, we provide sensitive and effective legal assistance.</p>
-            </div>
-          </div>
-          <div class="service-item">
-            <div class="service-icon">📋</div>
-            <div>
-              <div class="service-title">Public Notary Service</div>
-              <p class="service-body">We offer notarization for all documents, ensuring your paperwork is recognized both in Thailand and internationally.</p>
             </div>
           </div>
         </div>
@@ -2448,16 +2420,15 @@
   <div class="section-inner">
     <div class="different-inner">
       <div>
-        <span class="section-label">Our Advantage</span>
-        <h2 class="section-title">What Makes Us Different</h2>
+        <h2 class="section-title">WHAT MAKES US DIFFERENT</h2>
         <div class="divider"></div>
-        <p class="section-desc" style="margin-bottom:0;">We go beyond the basics. As authorized GSSA for Thailand Privilege Membership, we combine legal expertise with dedicated personal service to deliver an exceptional client experience.</p>
+        <p class="section-desc" style="margin-bottom:0;">We go beyond the basics. As authorized GSSA for Sawasdee Privilege Membership, we combine legal expertise with dedicated personal service to deliver an exceptional client experience.</p>
         <div class="diff-cards">
           <div class="diff-card">
             <div class="diff-icon">🤝</div>
             <div>
               <div class="diff-title">Personalized Service</div>
-              <p class="diff-body">We believe in a one-on-one approach, providing expert guidance and dedicated support throughout the entire Thailand Privilege Visa process.</p>
+              <p class="diff-body">We believe in a one-on-one approach, providing expert guidance and dedicated support throughout the entire Sawasdee Privilege Visa process.</p>
             </div>
           </div>
           <div class="diff-card">
@@ -2471,7 +2442,7 @@
             <div class="diff-icon">📈</div>
             <div>
               <div class="diff-title">Proven Track Record</div>
-              <p class="diff-body">Our team has helped countless individuals and families obtain their Thailand Elite Visas and achieve their dreams of long-term residency.</p>
+              <p class="diff-body">Our team has helped countless individuals and families obtain their Sawasdee Privilege Visas and achieve their dreams of long-term residency.</p>
             </div>
           </div>
         </div>
@@ -2487,7 +2458,7 @@
             <li>Bank Account Opening Service ($140 USD value)</li>
           </ul>
           <div class="no-fee-note">
-            Ask us anything about Thailand Privilege Visa. Sawasdee Privilege does not charge any fee to assist you.
+            Ask us anything about Sawasdee Privilege Visa. Sawasdee Privilege does not charge any fee to assist you.
           </div>
         </div>
       </div>
@@ -2499,8 +2470,7 @@
 <section id="packages">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label" style="color:var(--gold);">Sawasdee Privilege Member</span>
-      <h2 class="section-title light">Choose Your Level of Privilege</h2>
+      <h2 class="section-title light">HASSLE-FREE LONG-TERM RESIDENCY IN THAILAND</h2>
       <div class="divider centered"></div>
       <p class="section-desc light">Select the membership tier that matches your lifestyle, residency goals, and investment horizon.</p>
     </div>
@@ -2508,12 +2478,11 @@
 
       <!-- GOLD -->
       <div class="pkg-card">
+        <div class="pkg-tier-above pkg-tier-gold">GOLD</div>
         <div class="pkg-card-header pkg-gold-header">
           <div class="pkg-card-img">🥇</div>
         </div>
         <div class="pkg-card-body">
-          <div class="pkg-tier" style="color:#c9a84c;">Gold</div>
-          <div class="pkg-card-name" style="font-size:1.1rem;">Gold</div>
           <div class="pkg-card-tagline">Uplift distinctive tourism experiences</div>
           <div class="pkg-visa-badge">1-Year VISA</div>
           <div class="pkg-target-label">Target</div>
@@ -2543,12 +2512,11 @@
 
       <!-- PLATINUM -->
       <div class="pkg-card">
+        <div class="pkg-tier-above pkg-tier-platinum">PLATINUM</div>
         <div class="pkg-card-header pkg-platinum-header">
           <div class="pkg-card-img">⬡</div>
         </div>
         <div class="pkg-card-body">
-          <div class="pkg-tier" style="color:#b0c4d8;">Platinum</div>
-          <div class="pkg-card-name" style="font-size:1.1rem;">Platinum</div>
           <div class="pkg-card-tagline">Elevate superior privileges</div>
           <div class="pkg-visa-badge">5-Year VISA</div>
           <div class="pkg-target-label">Target</div>
@@ -2578,12 +2546,11 @@
 
       <!-- DIAMOND — FEATURED -->
       <div class="pkg-card featured">
+        <div class="pkg-tier-above pkg-tier-diamond">DIAMOND</div>
         <div class="pkg-card-header pkg-diamond-header">
           <div class="pkg-card-img">💎</div>
         </div>
         <div class="pkg-card-body">
-          <div class="pkg-tier" style="color:#c9a84c;">Diamond</div>
-          <div class="pkg-card-name" style="font-size:1.1rem;">Diamond</div>
           <div class="pkg-card-tagline">Indulge ultimate privileges with supreme satisfaction</div>
           <div class="pkg-visa-badge" style="background:rgba(201,168,76,0.25);border-color:rgba(201,168,76,0.6);">10-Year VISA</div>
           <div class="pkg-target-label">Target</div>
@@ -2613,12 +2580,11 @@
 
       <!-- PRESIDENT -->
       <div class="pkg-card">
+        <div class="pkg-tier-above pkg-tier-president">PRESIDENT</div>
         <div class="pkg-card-header pkg-president-header">
           <div class="pkg-card-img">👑</div>
         </div>
         <div class="pkg-card-body">
-          <div class="pkg-tier" style="color:#c0392b;">President</div>
-          <div class="pkg-card-name" style="font-size:1.1rem;">President</div>
           <div class="pkg-card-tagline">Exclusive privileges for Extraordinary YOU</div>
           <div class="pkg-visa-badge">20-Year VISA</div>
           <div class="pkg-target-label">Target</div>
@@ -2650,12 +2616,11 @@
 
       <!-- PRESIDENT PLUS -->
       <div class="pkg-card">
+        <div class="pkg-tier-above pkg-tier-presplus">PRESIDENT PLUS</div>
         <div class="pkg-card-header pkg-presplus-header">
           <div class="pkg-card-img">🏆</div>
         </div>
         <div class="pkg-card-body">
-          <div class="pkg-tier" style="color:#c9a84c;">President Plus</div>
-          <div class="pkg-card-name" style="font-size:1rem;">President Plus</div>
           <div class="pkg-card-tagline">The Pinnacle of Privilege &amp; Legacy in Thailand</div>
           <div class="pkg-visa-badge">20-Year Privileged Residence Visa</div>
           <div class="pkg-target-label">Target</div>
@@ -2696,8 +2661,7 @@
 <section id="benefits">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label">What You Get</span>
-      <h2 class="section-title">Main Benefits of Thailand Elite Membership</h2>
+      <h2 class="section-title">MAIN BENEFITS OF <span style="color:var(--gold);">SAWASDEE PRIVILEGE</span> MEMBERSHIP</h2>
       <div class="divider centered"></div>
     </div>
     <div class="benefits-grid">
@@ -2737,8 +2701,7 @@
 <section id="freedom">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label">Privileges</span>
-      <h2 class="section-title">Your Freedom of Choices to Endless Privileges</h2>
+      <h2 class="section-title">YOUR FREEDOM OF CHOICES TO ENDLESS PRIVILEGES</h2>
       <div class="divider centered"></div>
     </div>
     <div class="freedom-grid">
@@ -2776,15 +2739,14 @@
   <div class="section-inner">
     <div class="assist-grid">
       <div>
-        <span class="section-label" style="color:var(--gold-light);">Our Support</span>
-        <h2 class="section-title light">We Help Thailand Elite Visa Clients</h2>
+        <h2 class="section-title light">WE HELP <span style="color:var(--gold);">SAWASDEE PRIVILEGE</span> VISA CLIENTS</h2>
         <div class="divider"></div>
-        <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.8;margin-bottom:0.5rem;">Get Expert Assistance with Your Thailand Elite Visa Application</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.8;margin-bottom:0.5rem;">Get Expert Assistance with Your Sawasdee Privilege Visa Application</p>
         <p style="color:rgba(255,255,255,0.55);font-size:0.875rem;line-height:1.8;">Our team of experienced consultants will personally guide you through the entire process, ensuring your application is accurate, complete, and submitted on time.</p>
         <ul class="assist-points">
           <li>Choosing the right membership package for your individual needs.</li>
           <li>Filling out all necessary forms accurately and thoroughly.</li>
-          <li>Making secure payments to the Thailand Privilege Card Company.</li>
+          <li>Making secure payments to the Sawasdee Privilege Card Company.</li>
         </ul>
         <button onclick="openPopup()" class="btn btn-gold btn-lg">Get Expert Help Now</button>
       </div>
@@ -2801,8 +2763,7 @@
 <section id="beyond">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label">Full-Service Support</span>
-      <h2 class="section-title">We Go Beyond the Basic Duties</h2>
+      <h2 class="section-title">WE GO BEYOND THE BASIC DUTIES</h2>
       <div class="divider centered"></div>
     </div>
     <div class="beyond-grid">
@@ -2814,7 +2775,7 @@
       <div class="beyond-card">
         <div class="beyond-icon">🤝</div>
         <div class="beyond-title">Elite Client Relationships</div>
-        <p class="beyond-body">We value building strong, lasting relationships. You become part of a supportive community of Thailand Elite members, with access to our ongoing assistance and guidance.</p>
+        <p class="beyond-body">We value building strong, lasting relationships. You become part of a supportive community of Sawasdee Privilege members, with access to our ongoing assistance and guidance.</p>
       </div>
       <div class="beyond-card">
         <div class="beyond-icon">🌐</div>
@@ -2829,10 +2790,9 @@
 <section id="luxury">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label">Exclusive Access</span>
-      <h2 class="section-title">Gravitate Towards Luxury &amp; Lifestyle Brands</h2>
+      <h2 class="section-title">GRAVITATE TOWARDS LUXURY &amp; LIFESTYLE BRANDS</h2>
       <div class="divider centered"></div>
-      <p class="section-desc" style="margin:0 auto 3.5rem;">As a Thailand Elite Visa holder, you'll have access to a world of luxury and sophistication. Enjoy exclusive benefits at brands that resonate with your discerning taste.</p>
+      <p class="section-desc" style="margin:0 auto 3.5rem;">As a Sawasdee Privilege Visa holder, you'll have access to a world of luxury and sophistication. Enjoy exclusive benefits at brands that resonate with your discerning taste.</p>
     </div>
     <div class="luxury-grid">
       <div class="luxury-card">
@@ -2859,8 +2819,7 @@
 <section id="why-choose">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label">Our Promise</span>
-      <h2 class="section-title">Why Choose Sawasdee Privilege?</h2>
+      <h2 class="section-title">WHY CHOOSE <span style="color:var(--gold);">SAWASDEE PRIVILEGE</span>?</h2>
       <div class="divider centered"></div>
     </div>
     <div class="why-choose-grid">
@@ -2872,7 +2831,7 @@
       <div class="why-choose-card">
         <div class="why-choose-icon">🤝</div>
         <div class="why-choose-title">Enduring Client Relationships</div>
-        <p class="why-choose-body">Our commitment extends far beyond the acquisition of the Thailand Elite Visa. Upon receiving membership, our clients become integral members of an evolving community. We foster enduring relationships, providing guidance, assistance, and learning opportunities long after your visa has been obtained.</p>
+        <p class="why-choose-body">Our commitment extends far beyond the acquisition of the Sawasdee Privilege Visa. Upon receiving membership, our clients become integral members of an evolving community. We foster enduring relationships, providing guidance, assistance, and learning opportunities long after your visa has been obtained.</p>
       </div>
       <div class="why-choose-card">
         <div class="why-choose-icon">🌐</div>
@@ -2887,8 +2846,7 @@
 <section id="testimonials">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label" style="color:var(--gold);">Social Proof</span>
-      <h2 class="section-title light">What Our Clients Say</h2>
+      <h2 class="section-title light">WHAT OUR CLIENTS SAY</h2>
       <div class="divider centered"></div>
       <p class="section-desc light" style="margin:0 auto 3.5rem;">Excellent 5-star rating across 1,600+ verified client reviews</p>
     </div>
@@ -2920,23 +2878,8 @@
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Outstanding service from start to finish. The team was knowledgeable, patient, and always available to answer questions. My Thailand Elite Visa process was completely stress-free."</p>
+        <p class="review-text">"Outstanding service from start to finish. The team was knowledgeable, patient, and always available to answer questions. My Sawasdee Privilege Visa process was completely stress-free."</p>
         <div class="review-author">— Craig Clark</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Professional, efficient, and thorough. They handled every detail of my Elite Visa application seamlessly. I couldn't be happier with the result — living my dream in Thailand!"</p>
-        <div class="review-author">— Owen Brady</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"The team's expertise in Thai immigration law is unmatched. They guided me step by step and kept me informed throughout the entire process. Exceptional service."</p>
-        <div class="review-author">— Alford Lau</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Fantastic experience! The process was smooth, the communication was excellent, and the team delivered exactly what they promised. I am now happily living in Thailand."</p>
-        <div class="review-author">— Leslie Quah</div>
       </div>
     </div>
   </div>
@@ -2946,19 +2889,18 @@
 <section id="faq">
   <div class="section-inner">
     <div class="text-center">
-      <span class="section-label">Knowledge Base</span>
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
       <div class="divider centered"></div>
     </div>
     <div class="faq-list">
       <div class="faq-item open">
         <button class="faq-question">
-          What is the Thailand Elite Visa?
+          What is the Sawasdee Privilege Visa?
           <span class="faq-chevron">▼</span>
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            The Thailand Elite Privilege Visa is a special visa introduced in 2003 by the Tourism Authority of Thailand, aimed at attracting affluent visitors, businessmen, investors, and expats to stay in Thailand long-term. It is classified as a Privilege Entry Visa, valid for 5–20 years with multiple entries without extensive paperwork or visits to the immigration office. Holders are permitted to stay in the country for up to 1 year on each visit.
+            The Sawasdee Privilege Visa is a special visa introduced in 2003 by the Tourism Authority of Thailand, aimed at attracting affluent visitors, businessmen, investors, and expats to stay in Thailand long-term. It is classified as a Privilege Entry Visa, valid for 5–20 years with multiple entries without extensive paperwork or visits to the immigration office. Holders are permitted to stay in the country for up to 1 year on each visit.
           </div>
         </div>
       </div>
@@ -2969,7 +2911,7 @@
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            The Thailand Privilege Membership and Thai Privilege Visa application process may take 4 weeks to 3 months, depending on the nationality of the applicant and any immigration or criminal record history. Our team works to expedite the process wherever possible.
+            The Sawasdee Privilege Membership and Thai Privilege Visa application process may take 4 weeks to 3 months, depending on the nationality of the applicant and any immigration or criminal record history. Our team works to expedite the process wherever possible.
           </div>
         </div>
       </div>
@@ -3013,8 +2955,8 @@
 <!-- ═══════════════════════════════════════════════ CONTACT -->
 <section id="contact">
   <div class="contact-inner">
-    <div class="contact-badge">Authorized General Sales and Services Agent for Thailand Privilege membership in Thailand</div>
-    <h2 class="section-title" style="color:var(--white);margin-bottom:0.75rem;">Ask Us About Thailand Elite Visa Services</h2>
+    <div class="contact-badge">Authorized General Sales and Services Agent for Sawasdee Privilege membership in Thailand</div>
+    <h2 class="section-title" style="color:var(--white);margin-bottom:0.75rem;">ASK US ABOUT <span style="color:var(--gold);">SAWASDEE PRIVILEGE</span> VISA SERVICES</h2>
     <div class="divider centered"></div>
     <p class="section-desc" style="color:rgba(255,255,255,0.65);margin:0 auto 1.5rem;">Our team of experts is ready to answer all your questions and guide you through every step of the process. No fee for consultation.</p>
     <a href="tel:0800059642" class="phone-cta">📞 080 005 9642</a>
@@ -3024,7 +2966,7 @@
     </div>
 
     <div class="form-box">
-      <div class="form-title">Where Do We Send Thailand Privilege Visa Information?</div>
+      <div class="form-title">Where Do We Send Sawasdee Privilege Visa Information?</div>
       <form id="info-form" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label for="name">What is your name?</label>
@@ -3070,7 +3012,7 @@
       </div>
       <div>
         <div class="footer-col-title">Our Promise</div>
-        <p style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.75;">We are committed to providing exceptional service and guiding you through every step of the Thailand Elite Visa application process. Our expertise and personalized attention ensure a smooth and successful journey to your new life in Thailand.</p>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.45);line-height:1.75;">We are committed to providing exceptional service and guiding you through every step of the Sawasdee Privilege Visa application process. Our expertise and personalized attention ensure a smooth and successful journey to your new life in Thailand.</p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -3111,8 +3053,8 @@
 
     <!-- RIGHT: form -->
     <div class="popup-right">
-      <h2 class="popup-title">Where Do We Send Thailand Privilege Visa Information?</h2>
-      <p class="popup-desc">Enter your name and email address below now to receive information on Thailand Privilege Visa.</p>
+      <h2 class="popup-title">Where Do We Send Sawasdee Privilege Visa Information?</h2>
+      <p class="popup-desc">Enter your name and email address below now to receive information on Sawasdee Privilege Visa.</p>
 
       <form onsubmit="handlePopupSubmit(event)">
         <div class="popup-field">
